@@ -1,4 +1,5 @@
 import HomePage from './pages/homepage';
+import ShopPage from './pages/shop-page';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
 
@@ -10,8 +11,7 @@ function App() {
     <>
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/topics" component={err404} />
-        <Route path="/topics/:topicId" component={err404} />
+        <Route exact path="/shop" component={ShopPage} />
         <Route path="/" component={err404} />
       </Switch>
     </>
