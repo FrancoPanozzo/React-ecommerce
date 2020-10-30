@@ -23,10 +23,10 @@ export default class SignInForm extends Component {
 
   render() {
     return (
-      <div className="sign-in-form">
-        <h2>I already have an account</h2>
+      <div className="sign-in">
+        <h2 className="title">I already have an account</h2>
         <span>Sign in with your email and password</span>
-        <form onSubmit={this.handleSubmit}>
+        <form className="sign-in-form" onSubmit={this.handleSubmit}>
           <FormInput
             handleChange={this.handleChange}
             label="email"
