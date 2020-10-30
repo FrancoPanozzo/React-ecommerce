@@ -1,9 +1,9 @@
 import './styles.scss';
 import React from 'react';
 
-export default function Button({ children, ...rest }) {
+export default function Button({ children, extraClass, ...rest }) {
   return (
-    <button className="button" {...rest}>
+    <button className={`button ${extraClass}`} {...rest}>
       {children}
     </button>
   );

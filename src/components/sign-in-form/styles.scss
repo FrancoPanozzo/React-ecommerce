@@ -6,4 +6,18 @@
   .title {
     margin: 10px 0;
   }
+
+  .buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .google-sign-in {
+    background-color: #4285f4;
+    &:hover {
+      background-color: #357ae8;
+      border: none;
+    }
+  }
 }

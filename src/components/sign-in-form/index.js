@@ -2,6 +2,7 @@ import './styles.scss';
 import React, { Component } from 'react';
 import FormInput from '../form-input';
 import Button from '../button';
+import { signInWithGoogle } from '../../firebase/firebase.utils';
 
 export default class SignInForm extends Component {
   state = {
@@ -42,7 +43,16 @@ export default class SignInForm extends Component {
             value={this.state.password}
             required
           />
-          <Button type="submit">Sign in</Button>
+          <div className="buttons-container">
+            <Button type="submit">Sign in</Button>
+            <Button
+              type="button"
+              onClick={signInWithGoogle}
+              extraClass="google-sign-in"
+            >
+              Sign in with Google
+            </Button>
+          </div>
         </form>
       </div>
     );
