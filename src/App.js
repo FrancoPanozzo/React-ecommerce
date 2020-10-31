@@ -2,6 +2,8 @@ import './App.css';
 import { Switch, Route } from 'react-router-dom';
 import { auth, createUserProfileDoc } from './firebase/firebase.utils';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { setUser } from './redux/user/user.actions';
 import HomePage from './pages/homepage';
 import ShopPage from './pages/shop-page';
 import SignInPage from './pages/sign-in';
@@ -12,20 +14,24 @@ function err404() {
 }
 
 class App extends Component {
-  state = { user: null };
-
   unSubscribeFromAuth = null;
 
   componentDidMount() {
+    const { setUser } = this.props;
+
     this.unSubscribeFromAuth = auth.onAuthStateChanged(async (user) => {
       if (user) {
         const userRef = await createUserProfileDoc(user);
 
         userRef.onSnapshot((snap) => {
-          this.setState({ user: { id: snap.id, ...snap.data() } });
+          setUser({
+            id: snap.id,
+            ...snap.data(),
+          });
         });
+      } else {
+        setUser(null);
       }
-      this.setState({ user: null });
     });
   }
 
@@ -36,7 +42,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <Header user={this.state.user} />
+        <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/shop" component={ShopPage} />
@@ -48,4 +54,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+  setUser: (user) => dispatch(setUser(user)),
+});
+
+export default connect(null, mapDispatchToProps)(App);

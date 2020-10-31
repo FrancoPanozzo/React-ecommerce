@@ -25,7 +25,7 @@ export default class SignUpForm extends Component {
         password
       );
 
-      createUserProfileDoc(user, { displayName });
+      await createUserProfileDoc(user, { displayName });
 
       // Reset fields
       this.setState({

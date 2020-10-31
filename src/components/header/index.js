@@ -3,8 +3,9 @@ import React from 'react';
 import { auth } from '../../firebase/firebase.utils';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default function Header({ user }) {
+function Header({ user }) {
   return (
     <header className="header">
       <Link to="/" className="logo-container">
@@ -36,3 +37,12 @@ export default function Header({ user }) {
     </header>
   );
 }
+
+// Make it so that the Header receives this info as props
+const mapStateToProps = (state) => ({
+  user: state.user.user,
+});
+
+// Connecting the configuration of props stated above
+export default connect(mapStateToProps)(Header);
+// *higher order component
