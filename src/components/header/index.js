@@ -5,8 +5,9 @@ import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import CartIcon from '../cart-icon';
+import CartDropdown from '../cart-dropdown';
 
-function Header({ user }) {
+function Header({ user, showCart }) {
   return (
     <header className="header">
       <Link to="/" className="logo-container">
@@ -36,13 +37,16 @@ function Header({ user }) {
         )}
         <CartIcon />
       </div>
+
+      {showCart ? <CartDropdown /> : null}
     </header>
   );
 }
 
 // Make it so that the Header receives this info as props
-const mapStateToProps = (state) => ({
-  user: state.user.user,
+const mapStateToProps = ({ user, showCart }) => ({
+  user: user.user,
+  showCart: showCart.showCart,
 });
 
 // Connecting the configuration of props stated above
