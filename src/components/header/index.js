@@ -4,6 +4,7 @@ import { auth } from '../../firebase/firebase.utils';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import CartIcon from '../cart-icon';
 
 function Header({ user }) {
   return (
@@ -33,6 +34,7 @@ function Header({ user }) {
             sign in
           </Link>
         )}
+        <CartIcon />
       </div>
     </header>
   );
