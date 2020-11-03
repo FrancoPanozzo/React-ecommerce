@@ -10,7 +10,7 @@ export default function CollectionPreview({ title, items }) {
         {items
           .filter((item, index) => index < 4)
           .map(({ id, ...props }) => (
-            <CollectionItem key={id} {...props} />
+            <CollectionItem key={id} {...props} id={id} />
           ))}
       </div>
     </div>
