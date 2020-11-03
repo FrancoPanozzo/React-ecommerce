@@ -4,14 +4,18 @@ import './styles.scss';
 import { connect } from 'react-redux';
 import { toggleShowCart } from '../../redux/cart/cart.actions';
 
-function CartIcon({ toggleShowCart }) {
+function CartIcon({ toggleShowCart, itemCount }) {
   return (
     <div className="cart-icon" onClick={toggleShowCart}>
       <ShoppingIcon className="shopping-icon" />
-      <span className="item-count">0</span>
+      <span className="item-count">{itemCount}</span>
     </div>
   );
 }
+
+const mapStateToProps = ({ cart }) => ({
+  itemCount: cart.cartItems.reduce((sum, item) => sum + item.qty, 0),
+});
 
 const mapDispatchToProps = (dispatch) => ({
   toggleShowCart: () => {
@@ -19,4 +23,4 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-export default connect(null, mapDispatchToProps)(CartIcon);
+export default connect(mapStateToProps, mapDispatchToProps)(CartIcon);
