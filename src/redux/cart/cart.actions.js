@@ -8,3 +8,8 @@ export const setShowCart = (boolean) => ({
   type: actionTypes.SET_CART_VISIBILITY,
   payload: boolean,
 });
+
+export const addCartItem = (item) => ({
+  type: actionTypes.ADD_CART_ITEM,
+  payload: item,
+});

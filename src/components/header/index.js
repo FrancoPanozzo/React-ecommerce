@@ -44,9 +44,9 @@ function Header({ user, showCart }) {
 }
 
 // Make it so that the Header receives this info as props
-const mapStateToProps = ({ user, showCart }) => ({
+const mapStateToProps = ({ user, cart }) => ({
   user: user.user,
-  showCart: showCart.showCart,
+  showCart: cart.showCart,
 });
 
 // Connecting the configuration of props stated above

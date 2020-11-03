@@ -1,16 +1,17 @@
 import './styles.scss';
 import React from 'react';
 import Button from '../button';
+import { connect } from 'react-redux';
+import { addCartItem } from '../../redux/cart/cart.actions';
 
-export default function CollectionItem({ id, name, imageUrl, price }) {
-  const addToCart = () => {
-    console.log(`Item id:${id} added`);
-  };
+function CollectionItem({ item, addCartItem }) {
+  const { name, imageUrl, price } = item;
+
   return (
     <div className="collection-item">
       <div className="image" style={{ backgroundImage: `url(${imageUrl})` }}>
         <div className="image-overlay" />
-        <Button extraClass="inverted" onClick={addToCart}>
+        <Button extraClass="inverted" onClick={() => addCartItem(item)}>
           Add to cart
         </Button>
       </div>
@@ -21,3 +22,9 @@ export default function CollectionItem({ id, name, imageUrl, price }) {
     </div>
   );
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  addCartItem: (item) => dispatch(addCartItem(item)),
+});
+
+export default connect(null, mapDispatchToProps)(CollectionItem);

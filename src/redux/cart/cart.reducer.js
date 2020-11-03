@@ -2,6 +2,7 @@ import { actionTypes } from './cart.types';
 
 const INITIAL_STATE = {
   showCart: false,
+  cartItems: [],
 };
 
 const cartReducer = (state = INITIAL_STATE, action) => {
@@ -15,6 +16,20 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         showCart: !!action.payload,
+      };
+    case actionTypes.ADD_CART_ITEM:
+      // Function needs to be reestructured to be more readable
+      let items = [];
+      if (state.cartItems.find((item) => item.id === action.payload.id)) {
+        items = state.cartItems.map((item) =>
+          item.id === action.payload.id ? { ...item, qty: item.qty + 1 } : item
+        );
+      } else {
+        items = [...state.cartItems, { ...action.payload, qty: 1 }];
+      }
+      return {
+        ...state,
+        cartItems: items,
       };
     default:
       return state;
