@@ -8,6 +8,7 @@ import HomePage from './pages/homepage';
 import ShopPage from './pages/shop-page';
 import SignInPage from './pages/sign-in';
 import Header from './components/header';
+import { selectUser } from './redux/user/user.selectors';
 
 function err404() {
   return <div>404 not found</div>;
@@ -60,8 +61,8 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ user }) => ({
-  user: user.user,
+const mapStateToProps = (state) => ({
+  user: selectUser(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -4,8 +4,11 @@ import { auth } from '../../firebase/firebase.utils';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { selectUser } from '../../redux/user/user.selectors';
+import { selectShowCart } from '../../redux/cart/cart.selectors';
 import CartIcon from '../cart-icon';
 import CartDropdown from '../cart-dropdown';
+import { createStructuredSelector } from 'reselect';
 
 function Header({ user, showCart }) {
   return (
@@ -44,9 +47,9 @@ function Header({ user, showCart }) {
 }
 
 // Make it so that the Header receives this info as props
-const mapStateToProps = ({ user, cart }) => ({
-  user: user.user,
-  showCart: cart.showCart,
+const mapStateToProps = createStructuredSelector({
+  user: selectUser,
+  showCart: selectShowCart,
 });
 
 // Connecting the configuration of props stated above
