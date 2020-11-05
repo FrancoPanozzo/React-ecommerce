@@ -4,7 +4,7 @@ import './styles.scss';
 export default function CartItem({ item }) {
   return (
     <div className="cart-item">
-      <img src={item.imageUrl} />
+      <img src={item.imageUrl} alt={item.name} />
       <div className="item-details">
         <span className="name">{item.name}</span>
         <span className="price">
