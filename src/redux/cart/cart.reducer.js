@@ -12,11 +12,13 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         ...state,
         showCart: !state.showCart,
       };
+
     case actionTypes.SET_CART_VISIBILITY:
       return {
         ...state,
         showCart: !!action.payload,
       };
+
     case actionTypes.ADD_CART_ITEM:
       // Function needs to be reestructured to be more readable
       let items = [];
@@ -31,6 +33,13 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         ...state,
         cartItems: items,
       };
+
+    case actionTypes.REMOVE_CART_ITEM:
+      return {
+        ...state,
+        cartItems: state.cartItems.filter(({ id }) => id !== action.payload),
+      };
+
     default:
       return state;
   }
