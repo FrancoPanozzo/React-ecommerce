@@ -42,7 +42,7 @@ function CheckoutPage({ cartItems, cartTotalPrice }) {
         <br />
         4242 4242 4242 4242 - Exp: 12/2021 - CW:123
         <br />
-        ...find out more in by clicking the test mode button
+        ...find out more by clicking the test mode button
       </div>
     </div>
   );
