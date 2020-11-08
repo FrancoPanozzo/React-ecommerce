@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.scss';
 import CheckoutItem from '../../components/checkout-item';
+import StripeButton from '../../components/stripe-button';
 import { connect } from 'react-redux';
 import {
   selectCartItems,
@@ -33,6 +34,15 @@ function CheckoutPage({ cartItems, cartTotalPrice }) {
       ))}
       <div className="total">
         <span>total: ${cartTotalPrice}</span>
+      </div>
+      <StripeButton price={cartTotalPrice} />
+      <div className="warning">
+        **Please use the following card to test the integrated payment
+        solution**
+        <br />
+        4242 4242 4242 4242 - Exp: 12/2021 - CW:123
+        <br />
+        ...find out more in by clicking the test mode button
       </div>
     </div>
   );
