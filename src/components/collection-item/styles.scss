@@ -14,7 +14,7 @@
     margin-bottom: 5px;
 
     .image-overlay,
-    .button {
+    button {
       position: absolute;
       opacity: 0;
       transition: opacity 0.2s ease-in-out;
@@ -29,14 +29,14 @@
       opacity: 0;
     }
 
-    .button {
+    button {
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
     }
 
     &:hover {
-      .button,
+      button,
       .image-overlay {
         opacity: 1;
       }

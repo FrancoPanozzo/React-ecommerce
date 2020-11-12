@@ -11,7 +11,7 @@ function CollectionItem({ item, addCartItem }) {
     <div className="collection-item">
       <div className="image" style={{ backgroundImage: `url(${imageUrl})` }}>
         <div className="image-overlay" />
-        <Button extraClass="inverted" onClick={() => addCartItem(item)}>
+        <Button inverted onClick={() => addCartItem(item)}>
           Add to cart
         </Button>
       </div>
