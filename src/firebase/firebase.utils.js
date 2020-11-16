@@ -21,6 +21,16 @@ export const firestore = firebase.firestore();
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: 'select_account' });
 
+export const createCollectionAndDocs = async (collectionKey, docsToAdd) => {
+  const collectionRef = firestore.collection(collectionKey);
+  const batch = firestore.batch();
+  docsToAdd.forEach((o) => {
+    const newDocRef = collectionRef.doc();
+    batch.set(newDocRef, o);
+  });
+  return await batch.commit();
+};
+
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
 export const createUserProfileDoc = async (userAuth, additionalData) => {
