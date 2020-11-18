@@ -4,6 +4,7 @@ import CollectionPreview from '../collection-preview';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCollectionsArray } from '../../redux/collections/collections.selectors';
+import WithSpinner from '../with-spinner';
 
 function CollectionsOverview({ collections }) {
   return (
@@ -19,4 +20,4 @@ const mapStateToProps = createStructuredSelector({
   collections: selectCollectionsArray,
 });
 
-export default connect(mapStateToProps)(CollectionsOverview);
+export default WithSpinner(connect(mapStateToProps)(CollectionsOverview));
