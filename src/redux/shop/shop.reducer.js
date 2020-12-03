@@ -2,7 +2,7 @@ import { actionTypes } from './shop.types';
 // import collections from './collections-data';
 
 const INITIAL_STATE = {
-  collections: [],
+  collections: null,
   isFetching: false,
   errorMessage: undefined,
 };
