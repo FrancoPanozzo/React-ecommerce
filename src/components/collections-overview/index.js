@@ -3,7 +3,7 @@ import './styles.scss';
 import CollectionPreview from '../collection-preview';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { selectCollectionsArray } from '../../redux/collections/collections.selectors';
+import { selectCollectionsArray } from '../../redux/shop/shop.selectors';
 import WithSpinner from '../with-spinner';
 
 function CollectionsOverview({ collections }) {

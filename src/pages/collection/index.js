@@ -2,7 +2,7 @@ import React from 'react';
 import CollectionItem from '../../components/collection-item';
 import './styles.scss';
 import { connect } from 'react-redux';
-import { selectCollection } from '../../redux/collections/collections.selectors';
+import { selectCollection } from '../../redux/shop/shop.selectors';
 import WithSpinner from '../../components/with-spinner';
 
 function CollectionPage({ collection }) {

@@ -6,7 +6,7 @@ import {
   firestore,
   convertCollectionsSnapshotToMap,
 } from '../../firebase/firebase.utils.js';
-import { updateCollections } from '../../redux/collections/collections.actions';
+import { updateCollections } from '../../redux/shop/shop.actions';
 import CollectionsOverview from '../../components/collections-overview';
 import CollectionPage from '../collection';
 

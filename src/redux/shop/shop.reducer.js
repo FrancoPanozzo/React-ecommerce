@@ -1,11 +1,13 @@
-import { actionTypes } from './collections.types';
+import { actionTypes } from './shop.types';
 import collections from './collections-data';
 
 const INITIAL_STATE = {
   collections,
+  isFetching: false,
+  errorMessage: undefined,
 };
 
-const collectionsReducer = (state = INITIAL_STATE, action) => {
+const shopReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case actionTypes.UPDATE_COLLECTIONS:
       return {
@@ -17,4 +19,4 @@ const collectionsReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export default collectionsReducer;
+export default shopReducer;
